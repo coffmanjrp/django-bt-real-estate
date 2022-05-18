@@ -1,3 +1,5 @@
 from django.db import models
 
-# Create your models here.
+
+class Realtor(models.Model):
+    print('realtors\models.py: Realtor class')
