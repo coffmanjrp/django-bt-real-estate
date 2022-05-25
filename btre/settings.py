@@ -12,6 +12,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from django.contrib.messages import constants as messages
 from pathlib import Path
+from os import environ
+from dotenv import load_dotenv, find_dotenv
+
+# Find and load .env file
+load_dotenv(find_dotenv())
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -21,10 +26,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-!9zs^-g&9i907asbfz-!d-_)+#lz)e!7rgo4x5kk6sz15n4ujr'
+SECRET_KEY = environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -85,7 +90,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'btredb',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
+        # 'PASSWORD': 'postgres',
+        'PASSWORD': 'kiriko2456',
         'HOST': 'localhost',
     }
 }
